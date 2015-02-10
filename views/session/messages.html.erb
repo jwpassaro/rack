@@ -1,0 +1,16 @@
+<% if params[:message].present? %>
+  <h5>Message: <%= params[:message] %> </h5>
+<% end %>
+
+<h2>Post a message</h2>
+<form method="post">
+  <p><textarea name="name" rows="4" cols="40"></textarea></p>
+  <p><textarea name="message" rows="8" cols="80"></textarea></p>
+  <p><input type="submit" value="Post message!"/></p>
+</form>
+
+<ul>
+  <% session[:messages].each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>

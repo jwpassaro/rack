@@ -1,12 +1,15 @@
+$:.unshift 'lib'
+require 'slim'
+require 'application_controller'
+require 'about_controller'
+require 'home_controller'
+require 'bios_controller'
+require 'router'
+require 'application'
+require 'messages_controller'
 require 'time'
 
-
-
-class Application
-  def call(env)
-    [200, {}, [Time.now.to_s],]
-  end
-end
-
+use Rack::Session::Cookie, secret: 'secret'
 run Application.new
+
 #run Proc.new { |env| ['200', {'Content-Type' => 'text/html'}, ['Goodbye']] }
